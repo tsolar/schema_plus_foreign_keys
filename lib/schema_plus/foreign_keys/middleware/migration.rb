@@ -44,7 +44,7 @@ module SchemaPlus::ForeignKeys
         # Column option shortcuts
         #
         def before(env)
-          opts = env.options[:foreign_key]
+          # opts = env.options[:foreign_key]
 
           return if opts == false
 
@@ -57,7 +57,7 @@ module SchemaPlus::ForeignKeys
           return if opts.nil?
 
           if opts.has_key?(:references) && !opts[:references]
-            env.options[:foreign_key] = false
+            # env.options[:foreign_key] = false
             return
           end
 
@@ -69,7 +69,7 @@ module SchemaPlus::ForeignKeys
             opts[:primary_key] ||= primary_key
           end
 
-          env.options[:foreign_key] = opts
+          # env.options[:foreign_key] = opts
         end
 
         #
@@ -84,7 +84,7 @@ module SchemaPlus::ForeignKeys
 
           # usurp foreign key creation from AR, since it doesn't support
           # all our features
-          env.options[:foreign_key] = false 
+          # env.options[:foreign_key] = false 
 
           yield env
 
@@ -138,7 +138,7 @@ module SchemaPlus::ForeignKeys
         end
 
         def get_fk_opts(env, config)
-          opts = env.options[:foreign_key]
+          # opts = env.options[:foreign_key]
           return nil if opts.nil?
           return :none if opts == false
           opts = {} if opts == true

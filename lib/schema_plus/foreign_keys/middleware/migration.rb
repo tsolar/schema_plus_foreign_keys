@@ -44,7 +44,7 @@ module SchemaPlus::ForeignKeys
         # Column option shortcuts
         #
         def before(env)
-          # opts = env.options[:foreign_key]
+          opts = false # env.options[:foreign_key]
 
           return if opts == false
 
@@ -139,6 +139,7 @@ module SchemaPlus::ForeignKeys
 
         def get_fk_opts(env, config)
           # opts = env.options[:foreign_key]
+          opts = nil
           return nil if opts.nil?
           return :none if opts == false
           opts = {} if opts == true
